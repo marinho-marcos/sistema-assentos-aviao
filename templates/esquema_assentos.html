@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquema de Assentos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        .ocupado {
+            background-color: red;
+        }
+        .livre {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Esquema de Assentos</h1>
+    <table>
+        <tr>
+            <th>Fileira</th>
+            <th colspan="30">Assentos</th>
+        </tr>
+        {% for fileira, assentos in aeronave.items() %}
+        <tr>
+            <td>{{ fileira }}</td>
+            {% for coluna in range(30) %}
+                <td class="{{ 'ocupado' if assentos[coluna] else 'livre' }}">
+                    {{ 'X' if assentos[coluna] else 'O' }}
+                </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Marcar Assento</h2>
+    <form method="POST" action="/marcar">
+        <label>Fileira:</label>
+        <input type="text" name="fileira" required>
+        <label>Coluna:</label>
+        <input type="number" name="coluna" min="1" max="30" required>
+        <button type="submit">Marcar</button>
+    </form>
+
+    <h2>Desmarcar Assento</h2>
+    <form method="POST" action="/desmarcar">
+        <label>Fileira:</label>
+        <input type="text" name="fileira" required>
+        <label>Coluna:</label>
+        <input type="number" name="coluna" min="1" max="30" required>
+        <button type="submit">Desmarcar</button>
+    </form>
+</body>
+</html>
