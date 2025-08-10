@@ -2,7 +2,7 @@
 
 > Uma aplicação web simples para simular a reserva de assentos em um voo, construída com Python e o microframework Flask.
 
-<!-- ![Demonstração da Aplicação Web](https://i.imgur.com/u5jJ1aQ.gif) -->
+![Demonstração da Aplicação Web](https://i.imgur.com/JzUnQc5.gif)
 <!-- Sugestão: Grave um GIF da sua aplicação funcionando e substitua o link acima -->
 
 ---
